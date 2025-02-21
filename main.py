@@ -3,6 +3,7 @@ from typing import Union, List
 from fastapi import FastAPI
 from pydantic import BaseModel
 from youtube_transcript_api import YouTubeTranscriptApi
+from python_yt_search import VideosSearch, PlaylistsSearch, Search
 
 app = FastAPI()
 
