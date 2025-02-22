@@ -40,12 +40,12 @@ case "$(uname)" in
     CYGWIN*|MSYS*)
         # transform D:\path\to\venv to /d/path/to/venv on MSYS
         # and to /cygdrive/d/path/to/venv on Cygwin
-        VIRTUAL_ENV=$(cygpath "/Users/naufalw/skrool-python")
+        VIRTUAL_ENV=$(cygpath "/Users/naufalw/mysterious")
         export VIRTUAL_ENV
         ;;
     *)
         # use the path as-is
-        export VIRTUAL_ENV="/Users/naufalw/skrool-python"
+        export VIRTUAL_ENV="/Users/naufalw/mysterious"
         ;;
 esac
 
@@ -53,7 +53,7 @@ _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/bin:$PATH"
 export PATH
 
-VIRTUAL_ENV_PROMPT="skrool-python"
+VIRTUAL_ENV_PROMPT="mysterious"
 export VIRTUAL_ENV_PROMPT
 
 # unset PYTHONHOME if set
@@ -66,7 +66,7 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="(skrool-python) ${PS1:-}"
+    PS1="(mysterious) ${PS1:-}"
     export PS1
 fi
 

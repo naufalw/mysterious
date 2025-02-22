@@ -1,7 +1,12 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
+# Python virtual environment
 bin/
 lib/
 lib64/
 share/
-var/
+include/
+pyvenv.cfg
 __pycache__/
+*.pyc
+
+# Data directory
+# data/
