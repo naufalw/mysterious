@@ -33,9 +33,11 @@ def update():
     proxy_manager.update_proxy_list()
     return {"message": "Proxy list updated"}
 
+proxy= "https://spozswn5ra:e0zbkzcH7M0AMqh~2u@gate.smartproxy.com:7000"
+
 @app.get("/search/{query}")
 def search_query(query: str):
-    return [x for x in search(query, advanced=True, num_results=20)]
+    return [x for x in search(query, proxy=proxy, advanced=True, num_results=20,)]
 
 class SearchQuery(BaseModel):
     query: str
@@ -52,9 +54,12 @@ def getTranscript(video_id: str):
             raise Exception("No working proxies available")
             
         try:
+            print(proxy)
             transcript = YouTubeTranscriptApi.get_transcript(
-                video_id,
-                proxies=proxy
+                video_id,verify=False,
+                proxies={
+                    "http": proxy["http"],
+                    "https": proxy["https"],}
             )
             return " ".join(x["text"] for x in transcript)
         except Exception as e:
@@ -65,5 +70,6 @@ def getTranscript(video_id: str):
     try:
         return get_transcript_with_proxy()
     except Exception as e:
+        print("FAILED MY MANN", e)
         # Fallback to direct connection if proxy fails
         return " ".join(x["text"] for x in YouTubeTranscriptApi.get_transcript(video_id))
