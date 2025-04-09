@@ -33,7 +33,7 @@ def update():
     proxy_manager.update_proxy_list()
     return {"message": "Proxy list updated"}
 
-proxy= "https://spozswn5ra:e0zbkzcH7M0AMqh~2u@gate.smartproxy.com:7000"
+proxy= "socks5h://user-spozswn5ra-country-us:e0zbkzcH7M0AMqh~2u@gate.smartproxy.com:7000"
 
 @app.get("/search/{query}")
 def search_query(query: str):
